@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1 - Aula 8</title>
+</head>
+
+<body style="background-color: rgb(38, 33, 51); color: white; padding: 10px 10px 10px 10px;">
+
+    <h1>Lista de Frutas</h1>
+
+    <div style="margin: 5px 5px 5px 5px">
+        Avatar: <input id="caixaAvatar" type="text" /><br>
+        Nome: <input id="caixaNome" type="text" /><br>
+        Cor: <input id="caixaCor" type="text" />
+    </div>
+    <div>
+        <button onclick="acaoAdicionar()">Inserir</button>
+    </div>
+
+    <table border="1" style="margin: 5px 5px 5px 5px;">
+        <thead>
+            <tr>
+                <th>Avatar</th>
+                <th>Nome</th>
+                <th>Cor</th>
+            </tr>
+        </thead>
+        <tbody id="lista">
+        </tbody>
+    </table>
+
+    <script>
+
+        function acaoAdicionar() {
+            let avatar = document.getElementById("caixaAvatar").value
+            let nome = document.getElementById("caixaNome").value
+            let cor = document.getElementById("caixaCor").value
+
+            // Validate inputs
+            if (!avatar || !nome || !cor) {
+                alert("Por favor, preencha todos os campos antes de inserir.");
+                return;
+            }
+
+            insereLinha(avatar, nome, cor)
+            console.log("Avatar: ", avatar, " Nome: ", nome, " Cor: ", cor)
+        }
+
+        function insereLinha(avatar, nome, cor) {
+            let elem = document.getElementById("lista")
+            let htmlString = `
+                <tr>
+                    <td>`+avatar+`</td>
+                    <td>`+nome+`</td>
+                    <td>`+cor+`</td>
+                </tr>
+            `
+
+            elem.insertAdjacentHTML("beforeend", htmlString)
+        }
+
+        function calcular() {
+
+            let elem = document.getElementById("caixaSalario")
+            // console.log("Elem: ",elem);
+            let salario = parseFloat(elem.value)
+
+            // if(salario < 2000) {
+            //     salario = salario * 1.5
+            // }
+            // if(salario >= 2000 && salario < 5000) {
+            //     salario = salario * 1.2
+            // }
+            // if(salario >= 5000) {
+            //     salario = salario * 1.1
+            // }
+
+            if(salario < 2000) {
+                salario = salario * 1.5
+            } else {
+                if(salario < 5000) {
+                    salario = salario * 1.2
+                } else {
+                    salario = salario * 1.1
+                }
+            }
+
+            console.log("Seu novo Salário é ",salario)
+            let elem2 = document.getElementById("resposta") 
+            elem2.innerText = salario
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
