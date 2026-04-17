@@ -34,6 +34,17 @@
 
     <script>
 
+    let listaFrutas = [
+        { avatar: "🍎", nome: "Maçã", cor: "Vermelha" },
+        { avatar: "🍌", nome: "Banana", cor: "Amarela" },
+        { avatar: "🍇", nome: "Uva", cor: "Roxa" }
+    ]
+
+    for(let i = 0; i < listaFrutas.length; i++) {
+        let fruta = listaFrutas[i]
+        insereLinha(fruta.avatar, fruta.nome, fruta.cor)
+    }
+
         function acaoAdicionar() {
             let avatar = document.getElementById("caixaAvatar").value
             let nome = document.getElementById("caixaNome").value
